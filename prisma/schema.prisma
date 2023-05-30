@@ -19,10 +19,8 @@ model CartItem {
   id          String  @default(uuid())
   name        String
   description String?
-  price       Int
-  unitTotal   Float
-  lineTotal   Float
   quantity    Int
+  price       Float
   image       String?
 
   cartId String

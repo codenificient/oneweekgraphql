@@ -15,6 +15,7 @@
   "dependencies": {
     "@prisma/client": "^4.14.1",
     "autoprefixer": "10.4.14",
+    "currency-formatter": "1.5.9",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.3",
     "next": "13.4.3",
@@ -25,12 +26,14 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "3.3.1",
+    "@graphql-codegen/typescript": "3.0.4",
+    "@graphql-codegen/typescript-operations": "^4.0.0",
+    "@graphql-codegen/typescript-resolvers": "3.2.1",
+    "@types/currency-formatter": "^1.5.1",
     "@types/node": "20.2.3",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
-    "@graphql-codegen/cli": "3.3.1",
-    "@graphql-codegen/typescript": "3.0.4",
-    "@graphql-codegen/typescript-resolvers": "3.2.1",
     "prisma": "4.14.1"
   }
 }
