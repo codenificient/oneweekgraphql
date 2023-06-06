@@ -5,7 +5,7 @@ import { ProductItem } from "./ProductItem"
 
 export function ProductList ( { products }: { products: Product[] } ) {
 	return (
-		<ul className="grid grid-flow-row-dense grid-cols-1 grid-rows-4 md:grid-cols-2">
+		<ul className="grid grid-flow-col-dense grid-cols-4 gap-4 md:grid-cols-2">
 			{products.map( ( product,index ) => (
 				<ProductLink key={index} product={product} />
 			) )}
@@ -15,8 +15,10 @@ export function ProductList ( { products }: { products: Product[] } ) {
 
 export function ProductLink ( { product }: { product: Product } ) {
 	return (
-		<Link href={`/products/${product.slug}`} key={product.slug} style={{ height: 500 }} className="bg-gray-400">
+		<Link href={`/products/${product.slug}`} key={product.slug}>
+			<span style={{ height: 500 }} className="bg-gray-400">
 				<ProductItem product={product} />
+			</span>
 		</Link>
 	)
 }
