@@ -6,13 +6,14 @@ import { GraphQLError } from "graphql"
 import { createSchema,createYoga } from 'graphql-yoga'
 import type { NextApiRequest,NextApiResponse } from 'next'
 import { join } from 'path'
+import { Stripe } from "stripe"
 
-import { findOrCreateCart } from "../../../lib/cart"
+import {
+  findOrCreateCart,validateCartItems, currencyCode, } from "../../../lib/cart"
 import prisma from "../../../lib/prisma"
 import { stripe } from "../../../lib/stripe"
 import { CartItem,Resolvers } from '../../../types'
-
-const currencyCode="USD"
+import { products } from "../../../lib/products"
 
 export const config={
   api: {
@@ -190,18 +191,7 @@ const resolvers: Resolvers={
 
       }
 
-      const line_items=cartItems.map( lineItem => ( {
-        quantity: lineItem.quantity,
-        price_data: {
-          currency: currencyCode,
-          unit_amount: lineItem.price,
-          product_data: {
-            name: lineItem.name,
-            description: lineItem.description||undefined,
-            images: lineItem.image? [ lineItem.image ]:[]
-          }
-        }
-      } ) )
+      const line_items=validateCartItems( products,cartItems );
 
       const session=await stripe.checkout.sessions.create( {
         line_items,

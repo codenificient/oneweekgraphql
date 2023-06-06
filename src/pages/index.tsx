@@ -1,17 +1,29 @@
-import { Inter } from 'next/font/google'
+import { Header } from "@c/Header"
+import { ProductList } from "@c/ProductList"
+import { Product,products } from "@lib/products"
+import type { GetStaticProps,InferGetStaticPropsType,NextPage } from "next"
 
-const inter=Inter( { subsets: [ 'latin' ] } )
+export const getStaticProps: GetStaticProps<{
+  products: Product[]
+}>=async () => ( {
+  props: {
+    products: products.slice( 0,10 ),
+  },
+} )
 
-export default function Home () {
+const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>>=( {
+  products,
+} ) => {
   return (
-    <h1
-      className={`text-red-500 my-5 text-center ${inter.className}`}
-    >
-
-      Welcome to NEXTJS
-
-
-
-    </h1>
+    <div>
+      <Header />
+      <main>
+        <section>
+          <ProductList products={products} />
+        </section>
+      </main>
+    </div>
   )
 }
+
+export default Home
