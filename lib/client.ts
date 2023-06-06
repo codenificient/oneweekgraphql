@@ -1,7 +1,8 @@
 import { useMemo } from "react"
 import { ApolloClient,InMemoryCache } from "@apollo/client"
 
-const protocol=`${process.env.NODE_ENV==="development"? "http":"https"}://`
+const protocol=`${process.env.NODE_ENV==="development"? "http":"https"
+	}://`
 
 const host=
 	typeof window==="undefined"

@@ -20,3 +20,4 @@ export const products: Product[]=apparel
 		slug: product.Handle,
 		body: product[ "Body (HTML)" ],
 	} ) )
+	

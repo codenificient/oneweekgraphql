@@ -1,5 +1,5 @@
 import { GraphQLResolveInfo } from 'graphql';
-import { GraphQLContext } from './src/pages/api/graphql';
+import { GraphQLContext } from './src/pages/api';
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
 export type Maybe<T> = T | null;

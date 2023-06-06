@@ -1,4 +1,4 @@
-import Image from "next/legacy/image"
+import Image from "next/image"
 import { HTMLProps } from "react"
 
 import { Product } from "@lib/products"
@@ -10,7 +10,7 @@ export function ProductItem ( {
 } ) {
 	return (
 		<div className="relative flex items-center justify-center w-full h-full p-4 group overflow-clip">
-			<div className="absolute z-10">
+			<div className="absolute top-0 left-0 z-10">
 				<div className="p-2 text-2xl font-semibold bg-white border-b border-black">
 					{title}
 				</div>
@@ -22,8 +22,7 @@ export function ProductItem ( {
 				className="w-full h-full transition duration-500 transform motion-safe:group-focus:scale-110 motion-safe:group-hover:scale-110"
 				src={src}
 				alt={title}
-				width={150}
-				height={150}
+				layout="fill"
 				objectFit="cover"
 			/>
 		</div>

@@ -3,14 +3,21 @@ import { CartItem } from "./CartItem"
 
 export function CartDetail ( {
 	cart,
+	isReadOnly,
 }: {
 	cart: CartFragment|null|undefined
+	isReadOnly?: boolean
 } ) {
 	return (
 		<div>
 			<div className={`space-y-8 relative`}>
 				{cart?.items.map( ( item ) => (
-					<CartItem key={item.id} item={item} cartId={cart.id} />
+					<CartItem
+						key={item.id}
+						item={item}
+						cartId={cart.id}
+						isReadOnly={isReadOnly}
+					/>
 				) )}
 			</div>
 			<div className="pt-4 my-4 border-t border-neutral-700">

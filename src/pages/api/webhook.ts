@@ -1,5 +1,5 @@
 import { NextApiRequest,NextApiResponse } from "next"
-import { stripe } from "../../lib/stripe"
+import { stripe } from "@lib/stripe"
 import getRawBody from "raw-body"
 import Stripe from "stripe"
 
@@ -30,13 +30,7 @@ export default async function Webhook (
 
 	if ( event?.type==="checkout.session.completed" ) {
 		const _session=event.data.object as Stripe.Checkout.Session
-		/**
-		 * Fulfill order
-		 * This means performing one or more of the following:
-		 * - Send email to customer
-		 * - Store order in your database
-		 * More info: https://stripe.com/docs/payments/checkout/fulfill-orders
-		 */
+		console.log( "Fulfilling order" );
 	}
 
 	response.status( 200 ).end()

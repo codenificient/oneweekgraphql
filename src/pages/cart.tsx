@@ -1,12 +1,10 @@
 import type { GetServerSideProps,NextPage } from "next"
-import { useRouter } from "next/router"
-
-import { CartDetail } from "@c/CartDetail"
-import { Header } from "@c/Header"
-import { CartError } from "@c/CartError"
 import { getCartId } from "@lib/cart.client"
 import { useCreateCheckoutSessionMutation,useGetCartQuery } from "../../types"
-
+import { Header } from "@c/Header"
+import { CartDetail } from "@c/CartDetail"
+import { useRouter } from "next/router"
+import { CartError } from "@c/CartError"
 
 const Cart: NextPage<IProps>=( { cartId } ) => {
 	const { data }=useGetCartQuery( { variables: { id: cartId } } )

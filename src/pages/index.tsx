@@ -7,7 +7,7 @@ export const getStaticProps: GetStaticProps<{
   products: Product[]
 }>=async () => ( {
   props: {
-    products: products.slice( 0,10 ),
+    products: products.slice( 0,22 ),
   },
 } )
 
