@@ -16,7 +16,7 @@
     "@apollo/client": "^3.6.0",
     "@graphql-yoga/node": "2.3.0",
     "@prisma/client": "3.10.0",
-    "cookies-next": "^2.0.4",
+    "cookies-next": "^5.0.2",
     "currency-formatter": "1.5.9",
     "graphql": "16.8.1",
     "next": "15.1.1",
